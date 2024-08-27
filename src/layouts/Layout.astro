@@ -1,0 +1,32 @@
+---
+import { ViewTransitions } from "astro:transitions";
+import "../styles/index.css";
+
+const { title, description, url } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={url} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+    <ViewTransitions />
+  </head>
+  <body>
+    <div class="min-h-screen bg-black">
+      <div
+        class="container mx-auto flex items-start justify-center leading-relaxed selection:bg-white selection:text-black"
+      >
+        <slot />
+      </div>
+    </div>
+  </body>
+</html>

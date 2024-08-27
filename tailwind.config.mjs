@@ -1,0 +1,22 @@
+import defaultTheme from 'tailwindcss/defaultTheme'
+
+/** @type {import('tailwindcss').Config} */
+export default {
+	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
+	theme: {
+		extend: {
+			colors: {
+				'black': '#10100E',
+			},
+			fontFamily: {
+				sans: ['Cabinet Grotesk', ...defaultTheme.fontFamily.sans],
+				serif: ['Celatic Editorial', ...defaultTheme.fontFamily.serif],
+			},
+			backgroundImage: {
+				'gradient': 'linear-gradient(to right, #fff, #999)',
+				'gradient-secondary': 'linear-gradient(to right, #9e9e9e, #646464)',
+			},
+		},
+	},
+	plugins: [],
+}
