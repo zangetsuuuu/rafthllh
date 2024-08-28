@@ -1,0 +1,41 @@
+---
+import { Image } from "astro:assets";
+
+const iconsList = [
+  { name: "figma", alt: "Figma icon" },
+  { name: "tailwindcss", alt: "Tailwindcss icon" },
+  { name: "react", alt: "React icon" },
+  { name: "astro", alt: "Astro icon" },
+  { name: "mysql", alt: "MySQL icon" }, 
+];
+---
+
+<div class="relative max-w-80 overflow-hidden mt-16 md:mt-20">
+  <div class="animate-scroll whitespace-nowrap">
+    <span class="inline-flex space-x-6 md:space-x-8">
+      {
+        iconsList.map(({ name, alt }) => (
+            <Image
+              src={`/icons/${name}.svg`}
+              alt={alt}
+              width={32}
+              height={32}
+              decoding="async"
+              loading="eager"
+              format="svg"
+              class="select-none opacity-60 w-8 md:w-9 h-8 md:h-9"
+              draggable="false"
+            />
+        ))
+      }
+    </span>
+  </div>
+  <div
+    class="absolute inset-y-0 left-0 w-8 bg-gradient-to-r from-black to-transparent pointer-events-none"
+  >
+  </div>
+  <div
+    class="absolute inset-y-0 right-0 w-8 bg-gradient-to-l from-black to-transparent pointer-events-none"
+  >
+  </div>
+</div>

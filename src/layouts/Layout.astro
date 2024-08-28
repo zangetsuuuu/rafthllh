@@ -1,6 +1,6 @@
 ---
 import { ViewTransitions } from "astro:transitions";
-import "../styles/index.css";
+import "../styles/global.css";
 
 const { title, description, url } = Astro.props;
 ---
@@ -21,12 +21,12 @@ const { title, description, url } = Astro.props;
     <ViewTransitions />
   </head>
   <body>
-    <div class="min-h-screen bg-black">
+    <main class="min-h-screen bg-black">
       <div
-        class="container mx-auto flex items-start justify-center leading-relaxed selection:bg-white selection:text-black"
+        class="container mx-auto flex flex-col items-start justify-center leading-relaxed selection:bg-white selection:text-black pt-0"
       >
         <slot />
       </div>
-    </div>
+    </main>
   </body>
 </html>
