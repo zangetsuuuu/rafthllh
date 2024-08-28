@@ -16,6 +16,15 @@ export default {
 				'gradient': 'linear-gradient(to right, #fff, #999)',
 				'gradient-secondary': 'linear-gradient(to right, #9e9e9e, #646464)',
 			},
+			keyframes: {
+				scroll: {
+				  '0%': { transform: 'translateX(100%)' },
+				  '100%': { transform: 'translateX(-100%)' },
+				},
+			},
+			animation: {
+				scroll: 'scroll 16s linear infinite',
+			},
 		},
 	},
 	plugins: [],
