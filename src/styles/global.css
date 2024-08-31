@@ -21,7 +21,7 @@
 }
 
 .text-gradient {
-  @apply bg-gradient bg-clip-text text-transparent;
+  @apply bg-gradient bg-clip-text text-transparent pb-1;
 }
 
 .text-gradient-secondary {
