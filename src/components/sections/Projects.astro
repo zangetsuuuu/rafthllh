@@ -10,21 +10,21 @@ const projects = [
         id: '1',
         title: 'Manual Parking System',
         desc: 'A streamlined manual parking system built with native PHP for efficient space management.',
-        tools: ['PHP', 'MySQL', 'Bootstrap'],
+        techs: ['PHP', 'MySQL', 'Bootstrap'],
         github: 'https://github.com/zangetsuuuu/manual-parking-system',
     },
     {
         id: '2',
         title: 'Toilet Checklist System',
         desc: 'An intuitive checklist system for maintaining restroom cleanliness, powered by native PHP.',
-        tools: ['PHP', 'MySQL', 'Bootstrap'],
+        techs: ['PHP', 'MySQL', 'Bootstrap'],
         github: 'https://github.com/zangetsuuuu/toilet-checklist-system',
     },
     {
         id: '3',
         title: 'Simple Online Store',
         desc: 'A lightweight online store platform offering seamless online shopping with Faspay integration for easy payments—no shipping required.',
-        tools: ['CodeIgniter4', 'MySQL', 'TailwindCSS', 'Flowbite'],
+        techs: ['CodeIgniter4', 'MySQL', 'TailwindCSS', 'Flowbite'],
         github: 'https://github.com/zangetsuuuu/ci4-online-store',
     },
 ];
@@ -37,8 +37,8 @@ const projects = [
         <div class="w-full px-6 md:px-0">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 place-items-center">
                 {
-                    projects.map(({ id, title, desc, tools, github }) => (
-                        <div class="relative w-full h-52 md:h-64 rounded-lg overflow-hidden group">
+                    projects.map(({ id, title, desc, techs, github }) => (
+                        <div class="relative w-full h-52 md:h-64 rounded-md overflow-hidden group">
                             <Image
                                 id={id}
                                 src={`/images/projects/${id}.webp`}
@@ -51,13 +51,13 @@ const projects = [
                                 draggable="false"
                                 class="w-full h-full object-cover filter saturate-50 transition-transform duration-300 group-hover:scale-105"
                             />
-                            <div class="absolute inset-0 p-4 opacity-0 group-hover:opacity-100 backdrop-blur-md bg-black/80 transition-opacity duration-300 rounded-lg">
+                            <div class="absolute inset-0 p-4 opacity-0 group-hover:opacity-100 backdrop-blur-md bg-black/80 transition-opacity duration-300 rounded-md">
                                 <div class="flex flex-col justify-between h-full">
                                     <div class="flex items-center space-x-3">
-                                        {tools.map((tool) => (
+                                        {techs.map((tech) => (
                                             <Image
-                                                src={`/icons/${tool.toLowerCase()}.svg`}
-                                                alt={tool}
+                                                src={`/icons/${tech.toLowerCase()}.svg`}
+                                                alt={tech}
                                                 width={24}
                                                 height={24}
                                                 loading="lazy"

@@ -9,39 +9,55 @@ const gallery = [
     {
         id: '1',
         title: 'Kurosaki Ichigo',
-        date: '09-03-2023',
+        date: '09 Mar 2023',
+        tool: 'Figma',
     },
     {
         id: '2',
         title: 'Eren Yeager',
-        date: '07-04-2023',
+        date: '07 Apr 2023',
+        tool: 'Figma',
     },
     {
         id: '3',
         title: 'Gwen Stacy',
-        date: '11-06-2023',
+        date: '11 Jun 2023',
+        tool: 'Figma',
     },
     {
         id: '4',
         title: 'Miles Morales',
-        date: '13-06-2023',
+        date: '13 Jun 2023',
+        tool: 'Figma',
     },
     {
         id: '5',
         title: 'Ghost',
-        date: '29-06-2023',
+        date: '29 Jun 2023',
+        tool: 'Figma',
     },
     {
         id: '6',
         title: 'Hirako Shinji',
-        date: '01-08-2023',
+        date: '01 Aug 2023',
+        tool: 'Alight Motion',
     },
     {
         id: '7',
         title: 'Shinobu Kocho',
-        date: '02-08-2023',
+        date: '02 Aug 2023',
+        tool: 'Alight Motion',
+    },
+    {
+        id: '8',
+        title: 'Yamamoto Genryuusai',
+        date: '03 Aug 2023',
+        tool: 'Alight Motion',
     },
 ];
+
+const date = new Date();
+const year = date.getFullYear();
 ---
 
 <Section>
@@ -49,10 +65,12 @@ const gallery = [
         <SectionTitle content="Gallery" />
         <SectionDesc content="A collection of my designs created using Figma and Alight Motion" />
         <div class="w-full px-6 md:px-0">
-            <div class="flex md:hidden items-center overflow-x-auto whitespace-nowrap space-x-4 py-2">
+            <div
+                class="flex items-center md:grid md:grid-cols-3 lg:grid-cols-4 md:place-items-center md:overflow-visible overflow-x-auto whitespace-nowrap space-x-4 md:space-x-0 gap-4"
+            >
                 {
-                    gallery.map(({ id, title, date }) => (
-                        <div class="flex-shrink-0 w-60 rounded-lg overflow-hidden">
+                    gallery.map(({ id, title, date, tool }) => (
+                        <div class="relative w-60 md:w-full flex-shrink-0 md:flex-shrink rounded-md overflow-hidden group">
                             <Image
                                 id={id}
                                 src={`/images/gallery/${id}.webp`}
@@ -63,30 +81,36 @@ const gallery = [
                                 decoding="async"
                                 format="webp"
                                 draggable="false"
-                                class="w-full h-full object-cover"
+                                class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                                 img-key="gallery"
                             />
-                        </div>
-                    ))
-                }
-            </div>
-            <div class="md:grid hidden grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 place-items-center">
-                {
-                    gallery.map(({ id, title, date }) => (
-                        <div class="h-full w-full rounded-lg overflow-hidden">
-                            <Image
-                                id={id}
-                                src={`/images/gallery/${id}.webp`}
-                                alt={title}
-                                width={240}
-                                height={240}
-                                loading="lazy"
-                                decoding="async"
-                                format="webp"
-                                draggable="false"
-                                class="w-full h-full object-cover"
-                                img-key="gallery"
-                            />
+                            <div class="absolute inset-0 p-4 opacity-0 group-hover:opacity-100 backdrop-blur-md bg-black/60 transition-opacity duration-300 rounded-md">
+                                <div class="flex flex-col justify-between h-full">
+                                    <div class="flex items-center justify-between">
+                                        <div class="-space-y-0.5">
+                                            <h4 class="text-gradient text-sm">{title}</h4>
+                                            <p class="text-gradient-secondary text-[0.65rem]">{date}</p>
+                                        </div>
+                                        <Image
+                                            src={`/icons/${tool.replace(' ', '').toLowerCase()}.svg`}
+                                            alt={tool}
+                                            width={24}
+                                            height={24}
+                                            loading="lazy"
+                                            decoding="async"
+                                            format="svg"
+                                            draggable="false"
+                                            class="w-5 h-5 select-none"
+                                        />
+                                    </div>
+                                    <div class="flex items-end justify-between">
+                                        <div class="w-full flex items-center justify-between">
+                                            <span class="text-gradient text-sm">Download</span>
+                                            <span id="full-img" class="text-gradient text-sm">Full Image</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     ))
                 }
@@ -96,10 +120,11 @@ const gallery = [
     </div>
     <script>
         // const design = document.querySelectorAll('[img-key="gallery"]');
-        // design.forEach((item) => {
+        // const img = document.querySelectorAll('#full-img');
+        // img.forEach((item) => {
         //     item.addEventListener('click', (e) => {
         //         const target = e.target as HTMLElement;
-        //         console.log(target.id);
+        //         console.log(target.getAttribute('img-id'));
         //     });
         // });
     </script>
