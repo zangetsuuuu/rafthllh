@@ -1,5 +1,6 @@
 ---
 import { ViewTransitions } from 'astro:transitions';
+import Modal from '../components/common/Modal.astro';
 import '../styles/global.css';
 
 const { title, description, url } = Astro.props;
@@ -26,5 +27,6 @@ const { title, description, url } = Astro.props;
                 <slot />
             </div>
         </main>
+        <Modal />
     </body>
 </html>

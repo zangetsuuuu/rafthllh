@@ -1,0 +1,28 @@
+---
+import { Image } from 'astro:assets';
+---
+
+<div id="modal" class="fixed inset-0 bg-black/60 opacity-0 transition-opacity duration-300 backdrop-blur-md hidden items-center justify-center ">
+    <div class="space-y-8">
+        <Image
+            id="modal-image"
+            src="/"
+            alt=""
+            width={300}
+            height={600}
+            loading="lazy"
+            decoding="async"
+            format="webp"
+            draggable="false"
+            class="h-[28rem] md:h-[32rem] lg:h-[36rem] w-full rounded-lg object-cover"
+        />
+        <div class="text-center">
+            <button
+                id="modal-close"
+                class="text-base text-gradient hover:-translate-y-1 transition-transform duration-300"
+            >
+                Close
+            </button>
+        </div>
+    </div>
+</div>
