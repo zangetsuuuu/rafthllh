@@ -1,80 +1,32 @@
 ---
 import { Image } from 'astro:assets';
-
-const galleryList = [
-    {
-        id: '1',
-        title: 'Kurosaki Ichigo',
-        date: '09 Mar 2023',
-        tool: 'Figma',
-    },
-    {
-        id: '2',
-        title: 'Eren Yeager',
-        date: '07 Apr 2023',
-        tool: 'Figma',
-    },
-    {
-        id: '3',
-        title: 'Gwen Stacy',
-        date: '11 Jun 2023',
-        tool: 'Figma',
-    },
-    {
-        id: '4',
-        title: 'Miles Morales',
-        date: '13 Jun 2023',
-        tool: 'Figma',
-    },
-    {
-        id: '5',
-        title: 'Ghost',
-        date: '29 Jun 2023',
-        tool: 'Figma',
-    },
-    {
-        id: '6',
-        title: 'Hirako Shinji',
-        date: '01 Aug 2023',
-        tool: 'Alight Motion',
-    },
-    {
-        id: '7',
-        title: 'Shinobu Kocho',
-        date: '02 Aug 2023',
-        tool: 'Alight Motion',
-    },
-    {
-        id: '8',
-        title: 'Yamamoto Genryuusai',
-        date: '03 Aug 2023',
-        tool: 'Alight Motion',
-    },
-];
+import { galleryList } from '../data/gallery.js';
 
 const gallery = Astro.url.pathname === '/' ? galleryList.slice(0, 8) : galleryList;
+const width = Astro.url.pathname === '/' ? 'w-60' : 'w-full';
+const maxWidth = Astro.url.pathname === '/' ? 'max-w-36' : 'max-w-28';
 ---
 
 {
     gallery.map(({ id, title, date, tool }) => (
-        <div class="relative w-60 md:w-full flex-shrink-0 md:flex-shrink rounded-md overflow-hidden group">
+        <div class={`relative ${width} md:w-full flex-shrink-0 md:flex-shrink rounded-md overflow-hidden group`}>
             <Image
                 id={id}
                 src={`/images/gallery/${id}.webp`}
                 alt={title}
                 width={240}
                 height={240}
-                loading="lazy"
+                loading={Astro.url.pathname === '/' ? 'lazy' : (Number(id) <= 8 ? 'eager' : 'lazy')}
                 decoding="async"
                 format="webp"
                 draggable="false"
-                class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105 select-none"
             />
-            <div class="absolute inset-0 p-4 opacity-0 group-hover:opacity-100 backdrop-blur-md bg-black/60 transition-opacity duration-300 rounded-md">
+            <div class="absolute inset-0 p-3 md:p-4 opacity-0 group-hover:opacity-100 backdrop-blur-md bg-black/60 transition-opacity duration-300 rounded-md">
                 <div class="flex flex-col justify-between h-full">
                     <div class="flex items-center justify-between">
                         <div class="-space-y-0.5">
-                            <h4 class="text-gradient text-sm">{title}</h4>
+                            <h4 class={`text-gradient text-sm line-clamp-1 ${maxWidth} md:max-w-40`}>{title}</h4>
                             <p class="text-gradient-secondary text-[0.65rem]">{date}</p>
                         </div>
                         <Image
@@ -82,7 +34,7 @@ const gallery = Astro.url.pathname === '/' ? galleryList.slice(0, 8) : galleryLi
                             alt={tool}
                             width={24}
                             height={24}
-                            loading="lazy"
+                            loading={Astro.url.pathname === '/' ? 'lazy' : (Number(id) <= 8 ? 'eager' : 'lazy')}
                             decoding="async"
                             format="svg"
                             draggable="false"

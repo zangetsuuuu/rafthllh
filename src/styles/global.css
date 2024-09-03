@@ -1,22 +1,18 @@
 ::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #191919;
+  background: #10100e;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #10100E;
+  background-color: #56554b;
   transition: background-color 0.3s ease;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background-color: #191919;
-}
-
-#works-content::-webkit-scrollbar {
+#gallery::-webkit-scrollbar {
   display: none;
 }
 
