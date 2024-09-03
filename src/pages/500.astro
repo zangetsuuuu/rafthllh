@@ -1,0 +1,15 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const obj = {
+    title: '500 - Internal Server Error',
+    description: 'Oops! Something went wrong on the server',
+};
+---
+
+<Layout title={obj.title} description={obj.description} url="">
+    <div class="h-screen grid place-content-center text-center text-balance">
+        <h1 class="text-4xl md:text-5xl text-gradient font-serif mb-2">{obj.title}</h1>
+        <p class="text-sm md:text-base text-gradient-secondary">{obj.description}</p>
+    </div>
+</Layout>
