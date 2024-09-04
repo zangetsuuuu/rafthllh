@@ -5,6 +5,7 @@ import { galleryList } from '../data/gallery.js';
 const gallery = Astro.url.pathname === '/' ? galleryList.slice(0, 8) : galleryList;
 const width = Astro.url.pathname === '/' ? 'w-60' : 'w-full';
 const maxWidth = Astro.url.pathname === '/' ? 'max-w-36' : 'max-w-28';
+const padding = Astro.url.pathname === '/' ? 'p-4' : 'p-3';
 ---
 
 {
@@ -22,7 +23,7 @@ const maxWidth = Astro.url.pathname === '/' ? 'max-w-36' : 'max-w-28';
                 draggable="false"
                 class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105 select-none"
             />
-            <div class="absolute inset-0 p-3 md:p-4 opacity-0 group-hover:opacity-100 backdrop-blur-md bg-black/60 transition-opacity duration-300 rounded-md">
+            <div class={`absolute inset-0 ${padding} opacity-0 group-hover:opacity-100 backdrop-blur-md bg-black/60 transition-opacity duration-300 rounded-md`}>
                 <div class="flex flex-col justify-between h-full">
                     <div class="flex items-center justify-between">
                         <div class="-space-y-0.5">
