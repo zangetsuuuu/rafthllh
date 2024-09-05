@@ -5,7 +5,7 @@ import { galleryList } from '../data/gallery.js';
 const gallery = Astro.url.pathname === '/' ? galleryList.slice(0, 8) : galleryList;
 const width = Astro.url.pathname === '/' ? 'w-60' : 'w-full';
 const maxWidth = Astro.url.pathname === '/' ? 'max-w-36' : 'max-w-28';
-const padding = Astro.url.pathname === '/' ? 'p-4' : 'p-3';
+const padding = Astro.url.pathname === '/' ? 'p-4' : 'p-3 md:p-4';
 ---
 
 {
@@ -27,8 +27,8 @@ const padding = Astro.url.pathname === '/' ? 'p-4' : 'p-3';
                 <div class="flex flex-col justify-between h-full">
                     <div class="flex items-center justify-between">
                         <div class="-space-y-0.5">
-                            <h4 class={`text-gradient text-sm line-clamp-1 ${maxWidth} md:max-w-40`}>{title}</h4>
-                            <p class="text-gradient-secondary text-[0.65rem]">{date}</p>
+                            <h4 class={`text-gradient text-sm xl:text-lg font-medium line-clamp-1 ${maxWidth} md:max-w-40`}>{title}</h4>
+                            <p class="text-gradient-secondary text-[0.65rem] xl:text-sm">{date}</p>
                         </div>
                         <Image
                             src={`/icons/${tool.replace(' ', '').toLowerCase()}.svg`}
@@ -39,7 +39,7 @@ const padding = Astro.url.pathname === '/' ? 'p-4' : 'p-3';
                             decoding="async"
                             format="svg"
                             draggable="false"
-                            class="w-5 h-5 select-none"
+                            class="w-5 xl:w-7 h-5 xl:h-7 select-none"
                         />
                     </div>
                     <div class="flex items-end justify-between">
@@ -47,7 +47,7 @@ const padding = Astro.url.pathname === '/' ? 'p-4' : 'p-3';
                             <a
                                 href={`/images/gallery/${id}.webp`}
                                 download={`${id}.webp`}
-                                class="text-gradient text-sm hover:-translate-y-1 transition-transform duration-300"
+                                class="text-gradient text-sm xl:text-lg font-medium hover:-translate-y-1 transition-transform duration-300"
                             >
                                 Download
                             </a>
@@ -55,7 +55,7 @@ const padding = Astro.url.pathname === '/' ? 'p-4' : 'p-3';
                                 id="modal-btn"
                                 design-id={id}
                                 design-title={title}
-                                class="text-gradient text-sm hover:-translate-y-1 transition-transform duration-300"
+                                class="text-gradient text-sm xl:text-lg font-medium hover:-translate-y-1 transition-transform duration-300"
                             >
                                 Expand
                             </button>

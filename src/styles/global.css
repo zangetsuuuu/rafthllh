@@ -1,25 +1,54 @@
-::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+/* Font styles */
+@font-face {
+    font-family: 'Celatic Editorial';
+    src: url('/fonts/Celatic Editorial.woff2') format('woff2');
+    font-style: normal;
+    font-display: swap;
 }
 
-::-webkit-scrollbar-track {
-  background: #10100e;
+@font-face {
+    font-family: 'Cabinet Grotesk';
+    src: url('/fonts/Cabinet Grotesk.woff2') format('woff2');
+    font-style: normal;
+    font-display: swap;
 }
 
-::-webkit-scrollbar-thumb {
-  background-color: #56554b;
-  transition: background-color 0.3s ease;
+/* Utility classes */
+h3,
+h4,
+p,
+a,
+button {
+    font-family: 'Cabinet Grotesk', sans;
 }
 
-#gallery::-webkit-scrollbar {
-  display: none;
+h1 {
+    font-family: 'Celatic Editorial', serif;
 }
 
 .text-gradient {
-  @apply bg-gradient bg-clip-text text-transparent;
+    @apply bg-gradient bg-clip-text text-transparent;
 }
 
 .text-gradient-secondary {
-  @apply bg-gradient-secondary bg-clip-text text-transparent;
+    @apply bg-gradient-secondary bg-clip-text text-transparent;
+}
+
+/* Scrollbar styles */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: #10100e;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #56554b;
+    transition: background-color 0.3s ease;
+}
+
+#gallery::-webkit-scrollbar {
+    display: none;
 }

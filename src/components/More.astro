@@ -3,6 +3,7 @@ import { Image } from 'astro:assets';
 
 const currentYear = new Date().getFullYear();
 const socialLinks = [
+    { title: 'Email', url: 'mailto:rafifathallah99@gmail.com'},
     { title: 'Github', url: 'https://github.com/zangetsuuuu' },
     { title: 'Instagram', url: 'https://www.instagram.com/rafthllh' },
 ];
@@ -10,30 +11,33 @@ const socialLinks = [
 
 <div
     id="more-info"
-    class="fixed bottom-[4.5rem] left-0 right-0 mx-auto flex justify-center items-center space-x-6 p-4 w-fit min-w-[13.6rem] max-w-sm rounded-md bg-black/60 backdrop-blur-md border border-[#56554b] translate-y-60  duration-300 transition-transform z-40"
+    class="fixed bottom-[4.5rem] left-0 right-0 mx-auto flex justify-center items-center space-x-6 p-4 w-fit min-w-[13.6rem] xl:min-w-[15.6rem] max-w-sm rounded-md bg-black/60 backdrop-blur-md border border-[#56554b] translate-y-80 duration-300 transition-transform z-40"
 >
     <div class="w-full space-y-4">
         {
             socialLinks.map(({ title, url }) => (
-                <a href={url} class="flex items-center justify-between space-x-2 hover:translate-x-1 transition-transform">
-                    <p class="text-gradient text-sm">{title}</p>
+                <a
+                    href={url}
+                    class="flex items-center justify-between space-x-2 hover:translate-x-1 transition-transform"
+                >
+                    <p class="text-gradient text-sm xl:text-base">{title}</p>
                     <Image
                         src={`/icons/${title.toLowerCase()}.svg`}
                         alt={`${title} Icon`}
                         width={20}
                         height={20}
                         decoding="async"
-                        loading="eager"
+                        loading="lazy"
                         format="svg"
-                        class={`w-5 h-5 select-none hover:scale-90 transition-transform`}
+                        class={`w-5 xl:w-7 h-5 xl:h-7 select-none hover:scale-90 transition-transform`}
                         draggable="false"
                     />
                 </a>
             ))
         }
         <div class="mt-4 border-t border-[#56554b] pt-4">
-            <p class="text-center text-gradient text-sm">&copy; {currentYear} Rafif Athallah</p>
-            <p class="text-center text-gradient-secondary text-xs">
+            <p class="text-center text-gradient text-sm xl:text-base">&copy; {currentYear} Rafif Athallah</p>
+            <p class="text-center text-gradient-secondary text-xs xl:text-sm">
                 Built with <a href="https://astro.build">Astro</a>
             </p>
         </div>

@@ -4,8 +4,10 @@ window.addEventListener('scroll', () => {
     const isAtTop = window.scrollY === 0;
 
     nav.classList.toggle('translate-y-16', isAtTop);
+    nav.classList.toggle('xl:translate-y-20', isAtTop);
+    
     if (info && isAtTop) {
-        info.classList.add('translate-y-60');
+        info.classList.add('translate-y-80');
     }
 });
 
@@ -59,7 +61,7 @@ function closeModal() {
 function toggleInfo() {
     const info = document.getElementById('more-info');
     if (info) {
-        info.classList.toggle('translate-y-60');
+        info.classList.toggle('translate-y-80');
     }
 }
 

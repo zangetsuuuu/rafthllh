@@ -3,9 +3,9 @@ import { Image } from 'astro:assets';
 import { icons } from '../data/icons';
 ---
 
-<div class="relative max-w-80 overflow-hidden mt-6 md:mt-8">
+<div class="relative max-w-80 overflow-hidden mt-6 md:mt-8 xl:mt-10">
     <div class="animate-scroll whitespace-nowrap">
-        <span class="inline-flex space-x-6 md:space-x-8">
+        <span class="inline-flex space-x-6 md:space-x-8 xl:space-x-10">
             {
                 icons.map(({ name, alt }) => (
                     <Image
@@ -16,7 +16,7 @@ import { icons } from '../data/icons';
                         decoding="async"
                         loading="eager"
                         format="svg"
-                        class="select-none opacity-60 w-8 md:w-9 h-8 md:h-9"
+                        class="select-none opacity-60 w-8 md:w-9 xl:w-11 h-8 md:h-9 xl:h-11"
                         draggable="false"
                     />
                 ))
