@@ -49,7 +49,7 @@ export const galleryList = [
     },
     {
         id: '9',
-        title: 'Ulqiorra Cifer',
+        title: 'Ulquiorra Cifer',
         date: '08 Aug 2023',
         tool: 'Alight Motion',
     },

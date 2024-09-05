@@ -8,10 +8,6 @@ export default {
 			colors: {
 				'black': '#10100E',
 			},
-			fontFamily: {
-				sans: ['Cabinet Grotesk', ...defaultTheme.fontFamily.sans],
-				serif: ['Celatic Editorial', ...defaultTheme.fontFamily.serif],
-			},
 			backgroundImage: {
 				'gradient': 'linear-gradient(to right, #fff, #999)',
 				'gradient-secondary': 'linear-gradient(to right, #9e9e9e, #646464)',
@@ -23,7 +19,7 @@ export default {
 				},
 			},
 			animation: {
-				scroll: 'scroll 16s linear infinite',
+				'scroll': 'scroll 16s linear infinite',
 			},
 		},
 	},
