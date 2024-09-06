@@ -9,8 +9,28 @@ window.addEventListener('scroll', () => {
     if (info && isAtTop) {
         info.classList.add('translate-y-80');
     }
+
+    setupObserver();
 });
 
+// Observer
+function setupObserver() {
+    const sections = document.querySelectorAll('section');
+  
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
+  
+    sections.forEach(section => observer.observe(section));
+}
+  
 // Modal functions
 function openModal(target) {
     const targetSrc = target.getAttribute('design-id');
@@ -21,6 +41,7 @@ function openModal(target) {
     const modalImage = document.getElementById('modal-image');
     const modal = document.getElementById('modal');
     const nav = document.querySelector('nav');
+    const info = document.getElementById('more-info');
 
     if (modalImage) {
         modalImage.src = `/images/gallery/${targetSrc}.webp`;
@@ -32,7 +53,8 @@ function openModal(target) {
         setTimeout(() => {
             modal.classList.replace('opacity-0', 'opacity-100');
             nav.classList.replace('opacity-100', 'opacity-0');
-        }, 100);
+            info.classList.replace('opacity-100', 'opacity-0');;
+        }, 150);
     }
 }
 
@@ -40,10 +62,12 @@ function closeModal() {
     const modal = document.getElementById('modal');
     const modalImage = document.getElementById('modal-image');
     const nav = document.querySelector('nav');
+    const info = document.getElementById('more-info');
 
     if (modal) {
         modal.classList.replace('opacity-100', 'opacity-0');
         nav.classList.replace('opacity-0', 'opacity-100');
+        info.classList.replace('opacity-0', 'opacity-100');;
         setTimeout(() => {
             modal.classList.replace('flex', 'hidden');
         }, 150);
@@ -76,3 +100,5 @@ document.addEventListener('click', (e) => {
         toggleInfo();
     }
 });
+
+setupObserver();
