@@ -2,7 +2,8 @@
 import { Image } from "astro:assets";
 import { projectsList } from "../data/projects.js";
 
-const projects = Astro.url.pathname === '/' ? projectsList.slice(0, 4) : projectsList;
+const currentPath = Astro.url.pathname;
+const projects = currentPath === '/' ? projectsList.slice(0, 4) : projectsList;
 ---
 
 {
@@ -14,7 +15,7 @@ const projects = Astro.url.pathname === '/' ? projectsList.slice(0, 4) : project
                 alt={title}
                 width={240}
                 height={240}
-                loading={Astro.url.pathname === '/' ? 'lazy' : (Number(id) <= 4 ? 'eager' : 'lazy')}
+                loading={currentPath === '/' ? 'lazy' : (Number(id) <= 4 ? 'eager' : 'lazy')}
                 decoding="async"
                 format="webp"
                 draggable="false"
@@ -29,7 +30,7 @@ const projects = Astro.url.pathname === '/' ? projectsList.slice(0, 4) : project
                                 alt={tech}
                                 width={24}
                                 height={24}
-                                loading={Astro.url.pathname === '/' ? 'lazy' : (Number(id) <= 4 ? 'eager' : 'lazy')}
+                                loading={currentPath === '/' ? 'lazy' : (Number(id) <= 4 ? 'eager' : 'lazy')}
                                 decoding="async"
                                 format="svg"
                                 draggable="false"
@@ -57,7 +58,7 @@ const projects = Astro.url.pathname === '/' ? projectsList.slice(0, 4) : project
                                 alt="Github"
                                 width={20}
                                 height={20}
-                                loading={Astro.url.pathname === '/' ? 'lazy' : (Number(id) <= 4 ? 'eager' : 'lazy')}
+                                loading={currentPath === '/' ? 'lazy' : (Number(id) <= 4 ? 'eager' : 'lazy')}
                                 decoding="async"
                                 format="svg"
                                 draggable="false"

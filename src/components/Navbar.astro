@@ -2,33 +2,51 @@
 import { Image } from 'astro:assets';
 
 const navLinks = [
-    { title: 'Home', url: '/' },
-    { title: 'Projects', url: '/projects' },
-    { title: 'Gallery', url: '/gallery' },
+    { title: 'Projects', path: '/projects' },
+    { title: 'Gallery', path: '/gallery' },
 ];
+
+const currentPath = Astro.url.pathname;
 ---
 
 <nav
     class="fixed bottom-4 left-0 right-0 mx-auto flex justify-center items-center space-x-6 px-4 py-2 w-fit rounded-md bg-black/60 backdrop-blur-md border border-[#56554b] opacity-100 translate-y-16 xl:translate-y-20 duration-300 transition-all z-50"
 >
+    <a href="/" class="flex items-center">
+        <button type="button" aria-label="/">
+            <Image
+                src="/icons/home.svg"
+                alt="home"
+                width={28}
+                height={28}
+                decoding="async"
+                loading="lazy"
+                format="svg"
+                class={`w-7 xl:w-9 h-7 xl:h-9 select-none ${currentPath === '/' ? 'opacity-100' : 'opacity-40'} hover:scale-90 transition-transform`}
+                draggable="false"
+            />
+        </button>
+    </a>
     {
-        navLinks.map(({ title, url }) => (
-            <a href={url}>
-                <Image
-                    src={`/icons/${title.toLowerCase()}.svg`}
-                    alt={title}
-                    width={28}
-                    height={28}
-                    decoding="async"
-                    loading="lazy"
-                    format="svg"
-                    class={`w-7 xl:w-9 h-7 xl:h-9 select-none ${Astro.url.pathname === url ? 'opacity-100' : 'opacity-40'} hover:scale-90 transition-transform`}
-                    draggable="false"
-                />
+        navLinks.map(({ title, path }) => (
+            <a href={path} class="flex items-center">
+                <button type="button" aria-label={path}>
+                    <Image
+                        src={`/icons/${title.toLowerCase()}.svg`}
+                        alt={title}
+                        width={28}
+                        height={28}
+                        decoding="async"
+                        loading="lazy"
+                        format="svg"
+                        class={`w-7 xl:w-9 h-7 xl:h-9 select-none ${currentPath.includes(path) ? 'opacity-100' : 'opacity-40'} hover:scale-90 transition-transform`}
+                        draggable="false"
+                    />
+                </button>
             </a>
         ))
     }
-    <button id="more-btn">
+    <button type="button" id="more-btn">
         <Image
             id="more-icon"
             src="/icons/more.svg"

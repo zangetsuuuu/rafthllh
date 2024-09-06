@@ -9,8 +9,8 @@ export default {
 				'black': '#10100E',
 			},
 			backgroundImage: {
-				'gradient': 'linear-gradient(to right, #fff, #999)',
-				'gradient-secondary': 'linear-gradient(to right, #9e9e9e, #646464)',
+				'gradient': 'linear-gradient(to right, #ffffff, #7c7c7c)',
+				'gradient-secondary': 'linear-gradient(to right, #9e9e9e, #676767)',
 			},
 			keyframes: {
 				scroll: {

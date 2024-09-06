@@ -26,6 +26,14 @@ h1 {
     font-family: 'Celatic Editorial', serif;
 }
 
+section {
+    @apply opacity-0 translate-y-8 transition-all duration-500 ease-out;
+}
+
+section.is-visible {
+    @apply opacity-100 translate-y-0;
+}
+
 .text-gradient {
     @apply bg-gradient bg-clip-text text-transparent;
 }
@@ -36,19 +44,17 @@ h1 {
 
 /* Scrollbar styles */
 ::-webkit-scrollbar {
-    width: 6px;
-    height: 6px;
+    @apply w-1.5 h-1.5;
 }
 
 ::-webkit-scrollbar-track {
-    background: #10100e;
+    @apply bg-[#10100e];
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: #56554b;
-    transition: background-color 0.3s ease;
+    @apply bg-[#676767] transition-colors duration-300 ease-in-out;
 }
 
 #gallery::-webkit-scrollbar {
-    display: none;
+    @apply hidden;
 }

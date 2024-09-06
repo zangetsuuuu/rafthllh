@@ -2,10 +2,11 @@
 import { Image } from 'astro:assets';
 import { galleryList } from '../data/gallery.js';
 
-const gallery = Astro.url.pathname === '/' ? galleryList.slice(0, 8) : galleryList;
-const width = Astro.url.pathname === '/' ? 'w-60' : 'w-full';
-const maxWidth = Astro.url.pathname === '/' ? 'max-w-36' : 'max-w-28';
-const padding = Astro.url.pathname === '/' ? 'p-4' : 'p-3 md:p-4';
+const currentPath = Astro.url.pathname;
+const gallery = currentPath === '/' ? galleryList.slice(0, 8) : galleryList;
+const width = currentPath === '/' ? 'w-60' : 'w-full';
+const maxWidth = currentPath === '/' ? 'max-w-36' : 'max-w-28';
+const padding = currentPath === '/' ? 'p-4' : 'p-3 md:p-4';
 ---
 
 {
@@ -17,7 +18,7 @@ const padding = Astro.url.pathname === '/' ? 'p-4' : 'p-3 md:p-4';
                 alt={title}
                 width={240}
                 height={240}
-                loading={Astro.url.pathname === '/' ? 'lazy' : (Number(id) <= 8 ? 'eager' : 'lazy')}
+                loading={currentPath === '/' ? 'lazy' : (Number(id) <= 8 ? 'eager' : 'lazy')}
                 decoding="async"
                 format="webp"
                 draggable="false"
@@ -35,7 +36,7 @@ const padding = Astro.url.pathname === '/' ? 'p-4' : 'p-3 md:p-4';
                             alt={tool}
                             width={24}
                             height={24}
-                            loading={Astro.url.pathname === '/' ? 'lazy' : (Number(id) <= 8 ? 'eager' : 'lazy')}
+                            loading={currentPath === '/' ? 'lazy' : (Number(id) <= 8 ? 'eager' : 'lazy')}
                             decoding="async"
                             format="svg"
                             draggable="false"
